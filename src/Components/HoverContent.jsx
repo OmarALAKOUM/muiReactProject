@@ -4,8 +4,16 @@ import { WidthFull } from "@mui/icons-material";
 import AssignmentIcon from "@mui/icons-material/Assignment"; 
 import InventoryIcon from "@mui/icons-material/Inventory"; 
 import GavelIcon from "@mui/icons-material/Gavel"; 
+import { useNavigate } from "react-router";
 
-const HoverContent = ({ label }) => {
+const HoverContent = ({ label ,path,setHoveredItem, setHoverTop }) => {
+  const navigate = useNavigate();
+  const handleClick = (event) => {
+    const label = event.currentTarget.textContent.trim().toLowerCase().replace(/\s+/g, "-");
+    navigate(`${path}/${label}`);
+    setHoveredItem(null);
+    setHoverTop(null);
+  };
   switch (label) {
     case "Declarations":
       return (
@@ -271,8 +279,8 @@ const HoverContent = ({ label }) => {
             <Button fullWidth variant="outlined">
               Document Type
             </Button>
-            <Button fullWidth variant="outlined">
-              Declaration Type
+            <Button fullWidth variant="outlined" onClick={handleClick}>
+              Declarationtypes
             </Button>
             <Button fullWidth variant="outlined">
               Declaration SubType
@@ -304,8 +312,8 @@ const HoverContent = ({ label }) => {
             gap="5px"
             sx={{ margin: 1 }}
           >
-            <Button fullWidth variant="outlined">
-              Petty Cash
+            <Button fullWidth variant="outlined" onClick={handleClick} >
+              Product
             </Button>
             <Button fullWidth variant="outlined">
               Supplier

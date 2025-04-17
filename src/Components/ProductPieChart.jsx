@@ -12,13 +12,11 @@ const ProductPieChart = () => {
       const res = await fetch('https://dummyjson.com/products?limit=100');
       const json = await res.json();
 
-      // Group by category
       const categoryMap = {};
       json.products.forEach((product) => {
         categoryMap[product.category] = (categoryMap[product.category] || 0) + 1;
       });
 
-      // Format for Recharts
       const formatted = Object.entries(categoryMap).map(([name, value]) => ({
         name,
         value,
@@ -31,12 +29,12 @@ const ProductPieChart = () => {
   }, []);
 
   return (
-    <Card sx={{ maxWidth: 600, mx: 'auto', mt: 5, p: 2 }}>
+    <Card sx={{ maxWidth: 600,width:900, mx: 'auto', mt: 5, p: 2 }}>
       <CardContent>
         <Typography variant="h6" gutterBottom>
           Product Categories (Pie Chart)
         </Typography>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={550}>
           <PieChart>
             <Pie
               data={data}

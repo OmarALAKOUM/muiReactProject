@@ -73,7 +73,6 @@ import {
 } from "@mui/icons-material";
 
 const drawerWidth = 240;
-//const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
 const menuItems = [
   {
@@ -136,15 +135,15 @@ const Sidebar = ({ open, toggleDrawer }) => {
         {menuItems.map((item, index) => (
           <Box
             key={item.label}
-            sx={{ position: "relative"}}
+            sx={{ position: "relative" }}
             // onMouseEnter={() => setHoveredItem(item.label)}
             // onMouseLeave={() => setHoveredItem(null)}
             onMouseEnter={() => {
               setHoveredItem(item.label);
               const el = itemRefs.current[index];
-              console.log('index',el);
+              console.log("index", el);
               if (el) {
-                 const top = el.getBoundingClientRect().top;
+                const top = el.getBoundingClientRect().top;
                 // const rect = el.getBoundingClientRect();
                 // const top = rect.top + window.scrollY;
                 setHoverTop(top);
@@ -157,17 +156,17 @@ const Sidebar = ({ open, toggleDrawer }) => {
           >
             <Tooltip title={!open ? item.label : ""} placement="right">
               <ListItemButton
-               ref={(el) => (itemRefs.current[index] = el)}
-                href={item.path}
+                ref={(el) => (itemRefs.current[index] = el)}
+                // href={item.path}
                 sx={{
                   bgcolor: item.color,
                   color: "#fff",
                   py: 2,
                   mb: "3px",
-                  height:'70px',
+                  height: "70px",
                   "&:hover": {
                     bgcolor: item.color,
-                    color:"#fff",
+                    color: "#fff",
                   },
                 }}
               >
@@ -185,7 +184,7 @@ const Sidebar = ({ open, toggleDrawer }) => {
               </ListItemButton>
             </Tooltip>
 
-            {hoveredItem === item.label && open && (
+            {hoveredItem === item.label && (
               <Box
                 sx={{
                   position: "fixed",
@@ -196,15 +195,20 @@ const Sidebar = ({ open, toggleDrawer }) => {
                   backgroundColor: "#fff",
                   color: "#000",
                   boxShadow: 0,
-                  margin:0,
-                  padding:0,
+                  margin: 0,
+                  padding: 0,
                   border: "1px solid #ccc",
                   zIndex: 1301,
-                  borderRadius:1,
+                  borderRadius: 1,
                   // p: 2,
                 }}
               >
-                <HoverContent label={item.label} />
+                <HoverContent
+                  label={item.label}
+                  path={item.path}
+                  setHoveredItem={setHoveredItem}
+                  setHoverTop={setHoverTop}
+                />
               </Box>
             )}
           </Box>
