@@ -61,6 +61,20 @@ import {
   Tooltip,
   Box,
 } from "@mui/material";
+import DescriptionIcon from "@mui/icons-material/Description";
+import AssignmentIcon from "@mui/icons-material/Assignment";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import GavelIcon from "@mui/icons-material/Gavel";
+import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
+import LockPersonIcon from "@mui/icons-material/LockPerson";
+import PersonIcon from "@mui/icons-material/Person";
+import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
+import GroupIcon from "@mui/icons-material/Group";
+import ArticleIcon from "@mui/icons-material/Article";
+import MoneyIcon from "@mui/icons-material/Money";
+
+
+
 import {
   Menu as MenuIcon,
   ChevronLeft,
@@ -79,23 +93,85 @@ const menuItems = [
     label: "Declarations",
     icon: <Description />,
     color: "#800080",
-    path: "/declarations",
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/declarations/declarations",
+      icon: <AssignmentIcon />,
+      textbutton:'declarations'
+    },
+    {
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/declarations/commodities",
+      icon: <InventoryIcon />,
+      textbutton:'Commodities'
+    },
+    {
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/declarations/customsProcedure",
+      icon: <GavelIcon />,
+      textbutton:'customs Procedure'
+    },
+    ],
   },
   {
     label: "Configuration",
     icon: <Settings />,
     color: "#008000",
-    path: "/configuration",
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/configuration/users",
+      icon: <PersonIcon />,
+      textbutton:'users'
+    },
+    {
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/configuration/permissions",
+      icon: <LockPersonIcon />,
+      textbutton:'Permissions'
+    },
+    {
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/configuration/expensetypes",
+      icon: <AttachMoneyIcon />,
+      textbutton:'Expense Types'
+    },
+    ],
   },
   {
     label: "Accounting",
     icon: <Calculate />,
     color: "#000080",
-    path: "/accounting",
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/accounting/pettycash",
+      icon: <MoneyIcon />,
+      textbutton:'Petty Cash'
+    },],
   },
-  { label: "Entities", icon: <Groups />, color: "#FFA500", path: "/entities" },
-  { label: "System", icon: <Computer />, color: "#FF0000", path: "/system" },
-  { label: "Reports", icon: <PieChart />, color: "#0000FF", path: "/reports" },
+  { label: "Entities", icon: <Groups />, color: "#FFA500",
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/entities/clients",
+      icon: <GroupIcon />,
+      textbutton:'Clients'
+    },],
+   },
+  { label: "System", icon: <Computer />, color: "#FF0000", 
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/system/declarationtypes",
+      icon: <ArticleIcon />,
+      textbutton:'Declaration Types'
+    },],
+   },
+  { label: "Reports", icon: <PieChart />, color: "#0000FF", 
+    children:[{
+      label:'Search for Manifests Import and Modify Manifests',
+      path: "/reports/product",
+      icon: <MedicationLiquidIcon />,
+      textbutton:'Product'
+    },],
+   },
 ];
 
 const Sidebar = ({ open, toggleDrawer }) => {
@@ -204,8 +280,9 @@ const Sidebar = ({ open, toggleDrawer }) => {
                 }}
               >
                 <HoverContent
-                  label={item.label}
-                  path={item.path}
+                  item = {item}
+                  // label={item.label}
+                  // path={item.path}
                   setHoveredItem={setHoveredItem}
                   setHoverTop={setHoverTop}
                 />
