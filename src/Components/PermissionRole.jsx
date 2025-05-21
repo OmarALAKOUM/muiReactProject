@@ -24,8 +24,9 @@ import { DataGridPremium } from "@mui/x-data-grid-premium";
 import { GridToolbar } from "@mui/x-data-grid-premium";
 import { useSnackbar } from "notistack";
 import Dropdown from "./Dropdown";
-import { Width } from "devextreme-react/cjs/chart";
 import { Hide } from "devextreme-react/cjs/data-grid";
+// import { Width } from "devextreme-react/cjs/chart";
+// import { Hide } from "devextreme-react/cjs/data-grid";
 const PermissionRole = () => {
   const [roles, setRoles] = useState([]);
   const [selectedRole, setSelectedRole] = useState(null);
@@ -34,22 +35,23 @@ const PermissionRole = () => {
   const [isSaving, setIsSaving] = useState(false);
   const { enqueueSnackbar } = useSnackbar();
   const [loadingPermissions, setLoadingPermissions] = useState(false);
-  const [rowSelectionModel, setRowSelectionModel] = React.useState({
-    type: "include",
-    ids: new Set(checkedPermissions),
-  });
+  // const [rowSelectionModel, setRowSelectionModel] = React.useState({
+  //   type: "include",
+  //   ids: new Set(checkedPermissions),
+  // });
   const columns = [
     {
       field: "id",
       headerName: "ID",
       width: 50,
       // hide:true,
-      renderCell: (params) => (
-        <Checkbox
-          checked={checkedPermissions.includes(params.row.id)}
-          onChange={() => handleToggle(params.row.id)()}
-        />
-      ),
+      // hide:true,
+      // renderCell: (params) => (
+      //   <Checkbox
+      //     checked={checkedPermissions.includes(params.row.id)}
+      //     onChange={() => handleToggle(params.row.id)()}
+      //   />
+      // ),
     },
     {
       field: "description",
@@ -133,7 +135,7 @@ const PermissionRole = () => {
       setIsSaving(false);
     }
   };
-
+  console.log("checked permsisons", checkedPermissions);
   return (
     <Box sx={{ width: 500 }}>
       <Dropdown
@@ -160,16 +162,16 @@ const PermissionRole = () => {
                 },
               }}
               rows={allPermissions}
-              // rows={selectedRole ? allPermissions : []}
               columns={columns}
-              getRowId={(row) => row.id}
+              getRowId={(row) => row.id} //is a unique key for each row
               disableRowSelectionOnClick
               // hideFooter
               fullWidth
               // loading={!allPermissions.length}
-              // columnVisibilityModel={{
-              //   id: false,
-              // }}
+              columnVisibilityModel={{
+                id: false,
+              }}
+              loading={false}
               pagination
               initialState={{
                 pagination: {
@@ -180,12 +182,21 @@ const PermissionRole = () => {
               }}
               pageSizeOptions={[4, 8, 12]}
               checkboxSelection
-              rowSelectionModel={rowSelectionModel}
-              onRowSelectionModelChange={(newSelectionModel) =>
-                setRowSelectionModel(newSelectionModel)
-              }
-              // rowSelectionModel={checkedPermissions}
-              // onRowSelectionModelChange={(newSelection) => setCheckedPermissions(newSelection)}
+              //rowSelectionModel=rowselectionmodel
+              rowSelectionModel={{
+                type: "include",
+                ids: new Set(checkedPermissions),
+              }}
+              onRowSelectionModelChange={(newSelectionModel) => {
+                console.log("new selection model", newSelectionModel);
+                //newSelectionModel.ids.values
+                setCheckedPermissions([...newSelectionModel.ids.values()]);
+              }}
+              // rowSelectionModel={checkedPermissions ?? []}
+              // onRowSelectionModelChange={(newSelectionModel) => {
+              //   setCheckedPermissions(Array.isArray(newSelectionModel) ? newSelectionModel : []);
+              // }}
+
               showToolbar
               slots={{ toolbar: GridToolbar }}
             />
