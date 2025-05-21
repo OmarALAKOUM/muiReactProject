@@ -1,0 +1,124 @@
+[
+  {
+    "id": 1,
+    "username": "danielnahhas",
+    "password": "qwe123",
+    "cart": []
+  },
+  {
+    "id": 2,
+    "username": "tony123",
+    "password": "123qwe",
+    "cart": []
+  },
+  {
+    "id": 3,
+    "username": "rony123",
+    "password": "123asd",
+    "cart": []
+  },
+  {
+    "id": 4,
+    "username": "dadas",
+    "password": "sup142",
+    "cart": []
+  },
+  {
+    "id": 5,
+    "username": "fadi123",
+    "password": "123fadi",
+    "cart": []
+  },
+  {
+    "id": 6,
+    "username": "charbel",
+    "password": "charbel",
+    "cart": [
+      {
+        "id": 2,
+        "title": "Motherboard",
+        "url": "/products/product2",
+        "price": 20,
+        "details": "How can u build without me XD",
+        "img": "/assets/Motherboard.png"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "username": "said",
+    "password": "said",
+    "cart": [
+      {
+        "id": 2,
+        "title": "Motherboard",
+        "url": "/products/product2",
+        "price": 20,
+        "details": "How can u build without me",
+        "img": "/assets/Motherboards.jpg"
+      },
+      {
+        "id": 4,
+        "title": "PSU",
+        "url": "/products/product4",
+        "price": 40,
+        "details": "Any one need power ^=^",
+        "img": "/assets/PSU.jpg"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "username": "said1",
+    "password": "said",
+    "cart": []
+  },
+  {
+    "id": 9,
+    "username": "said12",
+    "password": "said",
+    "cart": []
+  },
+  {
+    "id": 10,
+    "username": "said",
+    "password": "said1",
+    "cart": [
+      {
+        "id": 2,
+        "title": "Motherboard",
+        "url": "/products/product2",
+        "price": 20,
+        "details": "How can u build without me",
+        "img": "/assets/Motherboards.jpg"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "username": "samer1",
+    "password": "samer",
+    "cart": []
+  },
+  {
+    "id": 12,
+    "username": "Ronda",
+    "password": "Ronda",
+    "cart": []
+  },
+  {
+    "id": 13,
+    "username": "Karim",
+    "password": "Karim",
+    "cart": [
+      {
+        "id": 4,
+        "title": "PSU",
+        "url": "/products/product4",
+        "price": 40,
+        "details": "Any one need power ^=^",
+        "img": "/assets/PSU.jpg"
+      }
+    ]
+  }
+]

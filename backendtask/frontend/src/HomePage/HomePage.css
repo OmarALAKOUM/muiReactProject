@@ -1,0 +1,23 @@
+body {
+    font-family: monospace ;
+}
+.homepage-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px;
+}
+.toptitle{
+    font-size: 40px;
+    color: rgb(129, 43, 43);
+}
+.homepage-container p {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
+
+@media screen and (min-width:) {
+    
+}

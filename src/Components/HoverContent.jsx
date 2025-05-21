@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography, Button, Divider, Box } from "@mui/material";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router";
 const HoverContent = ({ item, setHoveredItem, setHoverTop }) => {
   const navigate = useNavigate();
 
@@ -30,6 +30,8 @@ const HoverContent = ({ item, setHoveredItem, setHoverTop }) => {
         {item.children?.map((child, idx) => (
           <Box key={idx} display="flex" alignItems="center">
             <Button
+              LinkComponent={Link}
+              to = {child.path}
               onClick={() => handleClick(child.path)}
               variant="outlined"
               sx={{

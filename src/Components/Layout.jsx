@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 
 const drawerWidth = 240;
-
+import { SnackbarProvider } from "notistack";
 const Layout = () => {
   const [open, setOpen] = useState(true);
   const toggleDrawer = () => setOpen((prev) => !prev);
@@ -47,8 +47,17 @@ const Layout = () => {
         />
       </AppBar>
       <Sidebar open={open} toggleDrawer={toggleDrawer} />
-      <Box component="main" sx={{ flexGrow: 1, p: 1, mt: 0,pt: '64px',height: '100vh', }}>
-        <Outlet />
+      <Box
+        component="main"
+        sx={{ flexGrow: 1, p: 1, mt: 0, pt: "64px", height: "100vh" }}
+      >
+        <SnackbarProvider
+          maxSnack={3}
+          anchorOrigin={{ vertical: "top", horizontal: "right" }}
+          autoHideDuration={3000}
+        >
+          <Outlet />
+        </SnackbarProvider>
       </Box>
     </Box>
   );

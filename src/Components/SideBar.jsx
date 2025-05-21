@@ -72,6 +72,9 @@ import MedicationLiquidIcon from "@mui/icons-material/MedicationLiquid";
 import GroupIcon from "@mui/icons-material/Group";
 import ArticleIcon from "@mui/icons-material/Article";
 import MoneyIcon from "@mui/icons-material/Money";
+import TranslateIcon from '@mui/icons-material/Translate';
+import LanguageIcon from '@mui/icons-material/Language';
+import PostAddIcon from '@mui/icons-material/PostAdd';
 
 
 
@@ -85,7 +88,7 @@ import {
   Computer,
   PieChart,
 } from "@mui/icons-material";
-
+//import { Link } from "react-router";
 const drawerWidth = 240;
 
 const menuItems = [
@@ -172,6 +175,23 @@ const menuItems = [
       textbutton:'Product'
     },],
    },
+   {
+    label: "Translations", icon: <TranslateIcon />, color: "#1976d2", 
+      children:[{
+        label:'Search for Manifests Import and Modify Manifests',
+        path: "/translations/translate",
+        icon: <LanguageIcon />,
+        textbutton:'Translate'
+      },
+      {
+        label:'Search for Manifests Import and Modify Manifests',
+        path: "/translations/post",
+        icon: <PostAddIcon />,
+        textbutton:'PostWord'
+      },
+    ],
+     
+   },
 ];
 
 const Sidebar = ({ open, toggleDrawer }) => {
@@ -212,12 +232,13 @@ const Sidebar = ({ open, toggleDrawer }) => {
           <Box
             key={item.label}
             sx={{ position: "relative" }}
+            // component={Link}
             // onMouseEnter={() => setHoveredItem(item.label)}
             // onMouseLeave={() => setHoveredItem(null)}
             onMouseEnter={() => {
               setHoveredItem(item.label);
               const el = itemRefs.current[index];
-              console.log("index", el);
+             // console.log("index", el);
               if (el) {
                 const top = el.getBoundingClientRect().top;
                 // const rect = el.getBoundingClientRect();

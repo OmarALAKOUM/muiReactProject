@@ -1,0 +1,20 @@
+#about{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#text {
+    font-size:large;
+    font-family: 'Courier New', Courier, monospace;
+}
+.about-title{
+    font-size: 30px;
+    font-weight: 600;
+    margin: 20px;
+}
+.img-about {
+    width: 200px;
+    margin: 15px;
+}

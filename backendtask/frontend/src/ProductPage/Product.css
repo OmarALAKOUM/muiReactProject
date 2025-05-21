@@ -1,0 +1,6 @@
+#cards {
+    display: flex;
+    justify-content: space-evenly; /* Adjust as needed, e.g., space-around, space-evenly */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line if the container is not wide enough */
+    height: 100%;
+  }
